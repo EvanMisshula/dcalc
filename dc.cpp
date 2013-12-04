@@ -5,14 +5,20 @@
 #include <stdio.h>
 using namespace std;
 
+void calcEuclideanDist(float &x1, float &y1, float &z1,float &x2, float &y2, float &z2)
+{
+  
+  float de= -1.0;
+
+  de= sqrt(pow(x2-x1,2)+pow(y2-y1,2)+pow(z2-z1,2));
+  
+  printf("The Euclidean distance between ( %10.4f, %10.4f, %10.4f ) and ( %10.4f, %10.4f, %10.4f ) is %10.4f.\n", x1, y1, z1, x2, y2, z2, de);
+
+}
+
+
 void displayPoints(float &x1, float &y1, float &z1,float &x2, float &y2, float &z2)
 {
-  // char fpstring[100];
-  // char spstring[100];
-  // fpstring =
-  // cout<< "The first point is "<< fpstring<<"."<< endl;
-  // fpstring =;
-  // cout<< "The second point is "<< spstring<<"."<< endl;
   printf("The first point is ( %10.4f, %10.4f, %10.4f ).\n", x1, y1, z1);
   printf("The second point is ( %10.4f, %10.4f, %10.4f ).\n", x2, y2, z2);
   
@@ -66,6 +72,7 @@ int * validateInput(char m_choice,
       cout<<"point 1 was ("<<x1<<", "<<y1<<", "<<z1<<")"<<endl;
       updatePt(x1,y1,z1);
       cout<<"point 1 is ("<<x1<<", "<<y1<<", "<<z1<<")"<<endl;
+
       break;
     case '2':
       num_choice=2;
@@ -79,6 +86,7 @@ int * validateInput(char m_choice,
       num_choice=3;
       break;
     case 'E': case 'e':
+      calcEuclideanDist(x1,y1,z1,x2,y2,z2);
       num_choice=4;
       break;
     case 'M': case 'm':
@@ -105,7 +113,7 @@ int * validateInput(char m_choice,
 
 int main()
 {
-  float x1=0.0,y1=0.0,z1=0.0,x2=0.0,y2=0.0,z2=0.0;
+  float x1=0.0,y1=0.0,z1=0.0,x2=1.0,y2=0.0,z2=0.0;
 
   char m_choice = displayMenu();
   int num_choice = *validateInput(m_choice,
