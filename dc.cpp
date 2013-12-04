@@ -5,6 +5,18 @@
 #include <stdio.h>
 using namespace std;
 
+void calcChebyshevDist(float &x1, float &y1, float &z1,float &x2, float &y2, float &z2)
+{
+  
+  float dc = -1.0;
+  float temp = 0.0;
+  
+  temp = max(abs (x2-x1), abs (y2-y1)) ;
+  dc = max(temp, abs (z2-z1));
+  
+  printf("The Chebyshev distance between ( %10.4f, %10.4f, %10.4f ) and ( %10.4f, %10.4f, %10.4f ) is %10.4f.\n", x1, y1, z1, x2, y2, z2, dc);
+
+}
 void calcManhattanDist(float &x1, float &y1, float &z1,float &x2, float &y2, float &z2)
 {
   
@@ -12,7 +24,7 @@ void calcManhattanDist(float &x1, float &y1, float &z1,float &x2, float &y2, flo
 
   dm= abs (x2-x1)+abs (y2-y1)+abs (z2-z1);
   
-  printf("The Euclidean distance between ( %10.4f, %10.4f, %10.4f ) and ( %10.4f, %10.4f, %10.4f ) is %10.4f.\n", x1, y1, z1, x2, y2, z2, dm);
+  printf("The Manhattan distance between ( %10.4f, %10.4f, %10.4f ) and ( %10.4f, %10.4f, %10.4f ) is %10.4f.\n", x1, y1, z1, x2, y2, z2, dm);
 
 }
 
@@ -105,6 +117,7 @@ int * validateInput(char m_choice,
       num_choice=5;
       break;
     case 'C': case 'c':
+     calcChebyshevDist(x1,y1,z1,x2,y2,z2);
       num_choice=6;
       break;
     case 'Q': case 'q':
