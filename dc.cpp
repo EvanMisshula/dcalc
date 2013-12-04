@@ -3,6 +3,7 @@
 #include <cmath>
 #include <string>
 #include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 
 void calcChebyshevDist(float &x1, float &y1, float &z1,float &x2, float &y2, float &z2)
@@ -95,7 +96,6 @@ int * validateInput(char m_choice,
       cout<<"point 1 was ("<<x1<<", "<<y1<<", "<<z1<<")"<<endl;
       updatePt(x1,y1,z1);
       cout<<"point 1 is ("<<x1<<", "<<y1<<", "<<z1<<")"<<endl;
-
       break;
     case '2':
       num_choice=2;
@@ -121,6 +121,7 @@ int * validateInput(char m_choice,
       num_choice=6;
       break;
     case 'Q': case 'q':
+      exit (EXIT_SUCCESS);
       num_choice=7;
       break;
   default :
