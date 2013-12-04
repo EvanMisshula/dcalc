@@ -60,8 +60,6 @@ void updatePt(float &x, float &y, float &z)
 
 char displayMenu()
 {
-  char choice = 'z';
-
     cout <<"========3D Distance Calculator=========="<< endl;
     cout <<"[1] Change the first point" << endl;
     cout <<"[2] Change the second point"<< endl;
@@ -71,11 +69,15 @@ char displayMenu()
     cout <<"[C/c] Calculate and display the Chebyshev Distance between the two points"<< endl;
     cout <<"[Q/q] Quit the program\n\n";
     cout <<"Enter your choice : \n" << endl;
-    cin >> choice;
-    
-    char &choice_made = choice;
-    return choice_made;
+}
 
+char getUserReq()
+{
+  char choice = 'z';
+  cout<< "enter choice >"<<endl;
+  cin >> choice;
+  char &choice_made = choice;
+  return choice_made;
 }
 
 int * validateInput(char m_choice,
@@ -131,8 +133,10 @@ int * validateInput(char m_choice,
     }
 
   int *valid_input=&num_choice;
-
-
+  m_choice = getUserReq();
+  valid_input = validateInput(m_choice,
+			       x1,y1,z1,
+			       x2,y2,z2);
   return valid_input;
 
 }
@@ -140,8 +144,8 @@ int * validateInput(char m_choice,
 int main()
 {
   float x1=0.0,y1=0.0,z1=0.0,x2=1.0,y2=0.0,z2=0.0;
-
-  char m_choice = displayMenu();
+  displayMenu();
+  char m_choice = getUserReq();
   int num_choice = *validateInput(m_choice,
 				  x1,y1,z1,
 				  x2,y2,z2);
