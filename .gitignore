@@ -11,3 +11,8 @@
 *.lai
 *.la
 *.a
+
+# ignore emacs files
+\#*\#
+# ignore . files
+.*
