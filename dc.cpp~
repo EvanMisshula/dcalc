@@ -1,0 +1,12 @@
+int main()
+{
+  char m_choice = displayMenu();
+
+  int num_choice = -1;
+  
+
+  num_choice = validateInput(m_choice);
+  
+  cout<< "The scenario is number ="<< num_choice<< endl;
+}
+
